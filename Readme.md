@@ -1,9 +1,10 @@
 # Jira Metrics Sync
 
 This is a small experiment to compare different Sprints from the Sprint Report included in JIRA.
- 
-The Sprint Report in JIRA contains a detailed account for the metrics of a specific Sprint but it doesn't provide a mechanism to compare the metrics over time. This script attempts to solve that problem, extracting the report of each close Sprint, compiling statistics (as completed story points, change of scope, etc) and storing them on a GoogleSheet for further comparison.
 
+![JIRA Sprint Report](https://images.ctfassets.net/zsv3d0ugroxu/74jSk0WMOHVuwcSO1ZZr6h/416f7f57457048f9d85c29c02781643b/screenshot_JSW_Classic_Sprint_Report)
+
+The Sprint Report in JIRA contains a detailed account for the metrics of a specific Sprint but it doesn't provide a mechanism to compare the metrics over time. This script attempts to solve that problem, extracting the report of each close Sprint, compiling statistics (as completed story points, change of scope, etc) and storing them on a GoogleSheet for further comparison.
 
 # How to use it
 
@@ -14,6 +15,10 @@ A couple of files are needed in the root of the project of path of the executabl
 * A Google API project has been created in order to store the information in a designated GoogleSheet. Thus, a file named `credentials.json` is needed and [it contains the necessary secrets](https://developers.google.com/workspace/guides/create-credentials#desktop) to access the GoogleSheet from the script.
 
 * A second file named `.jira-metrics.yaml` needs to be set and contains environment variables as API credentials for accessing JIRA API and other details like the destination GoogleSheet ID.
+
+### Additional info
+
+* [Google Sheet Template](https://docs.google.com/spreadsheets/d/19ctuMAb1sdAcWgfmOzZZYsob_pdpP-wH9wgojOqhDgs/edit#gid=140024541)
 
 ## Execution
 
