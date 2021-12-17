@@ -6,6 +6,8 @@ This is a small experiment to compare different Sprints from the Sprint Report i
 
 The Sprint Report in JIRA contains a detailed account for the metrics of a specific Sprint but it doesn't provide a mechanism to compare the metrics over time. This script attempts to solve that problem, extracting the report of each close Sprint, compiling statistics (as completed story points, change of scope, etc) and storing them on a GoogleSheet for further comparison.
 
+![Story Points Across Sprints](./story_points_chart.png)
+
 # How to use it
 
 ## Configuration
