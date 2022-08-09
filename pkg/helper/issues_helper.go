@@ -138,7 +138,7 @@ func (i IssuesHelper) generateJiraLink(issueID, issueTitle string) string {
 	)
 }
 
-var sprintRegex = regexp.MustCompile(`(?:IMR|MNZ|STR)\s+Sprint\s+(\d{4})-W?(\d{2})-W?(\d{2})`)
+var sprintRegex = regexp.MustCompile(`(?:[A-Z]{2,3})\s+Sprint\s+(\d{4})-W?(\d{2})-W?(\d{2})`)
 
 // SimplifySprintName changes the Sprint name to YYYY-WNN-NN
 func SimplifySprintName(name string) string {

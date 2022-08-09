@@ -91,14 +91,14 @@ Example: jira-metrics sync --year 2021 [--all | --sprint-week 41-43]`,
 
 		// Pattern for filtering Sprints
 		// @TODO: Should this be part of the configuration?
-		r, err := regexp.Compile(fmt.Sprintf(`(?:IMR|MNZ|STR)\s+Sprint\s+(%s)-W?(\d{2})-W?(\d{2})`, year))
+		r, err := regexp.Compile(fmt.Sprintf(`(?:[A-Z]{2,3})\s+Sprint\s+(%s)[-\s]?W?(\d{2})-W?(\d{2})`, year))
 
 		if err != nil {
 			return errors.Wrap(err, "error comiling Sprint regex")
 		}
 
 		var sprintLookupMap map[string]string = make(map[string]string, len(sprintList.Sprints))
-		var orderedSprintList []sprint = []sprint{}
+		var orderedSprintList []sprint = nil
 		var sprintPromptOptions []string = []string{}
 
 		for _, s := range sprintList.Sprints {
@@ -107,7 +107,7 @@ Example: jira-metrics sync --year 2021 [--all | --sprint-week 41-43]`,
 				continue
 			}
 			// filtering relevant Sprints by name pattern
-			if !r.MatchString(s.Name) {
+			if !r.MatchString(s.Name) && s.Name != "STR Sprint W51-W02(2021-2022)" {
 				continue
 			}
 			sprintLookupMap[s.Name] = strconv.Itoa(s.ID)
